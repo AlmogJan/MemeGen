@@ -10,5 +10,5 @@ body {
   overflow: hidden;
 }
 .display-none {
-  display: none;
+  display: none !important;
 }

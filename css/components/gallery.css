@@ -1,0 +1,7 @@
+.gallery-img {
+  width: 15.6vw;
+  aspect-ratio: 1/1;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  margin: 0;
+}

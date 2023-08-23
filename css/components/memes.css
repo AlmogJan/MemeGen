@@ -1,0 +1,10 @@
+.canvas-item {
+  border: 1px solid black;
+}
+
+.editor {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
