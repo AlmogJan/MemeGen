@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="icon"
+      href="images/Meme Icon Pack/Cartoons & Anime/PNG/meme_this_is_fine_dog.png"
+    />
+    <title>Meme-Gen</title>
+  </head>
+  <body onload="onInit()">
+    <header class="header-layout">
+      <div class="logo">
+        <img
+          class="logo-img"
+          src="images/Meme Icon Pack/Cartoons & Anime/PNG/meme_this_is_fine_dog.png"
+          alt=""
+        />
+        <h1 class="logo-heading">MemeGen</h1>
+      </div>
+      <nav class="navbar-container">
+        <ul class="navbar navbar-layout">
+          <li
+            class="nav-item nav-item-layout nav-gallery"
+            onclick="onGalleryClick(this)"
+          >
+            Gallery
+          </li>
+          <li
+            class="nav-item nav-item-layout nav-memes"
+            onclick="onMemesClick(this)"
+          >
+            memes
+          </li>
+          <li
+            class="nav-item nav-item-layout nav-about"
+            onclick="toggleModal()"
+          >
+            About
+          </li>
+          <li class="nav-item nav-item-layout nav-hamburger display-none"></li>
+        </ul>
+      </nav>
+      <button class="btn-toggle-menu display-none" onclick="toggleMenu(this)">
+        ☰
+      </button>
+      <button
+        class="toggle-dark-mode light-mode"
+        onclick="toggleDarkMode(this)"
+      >
+        ☀️
+      </button>
+    </header>
+    <div class="modal display-none">
+      <h1>About</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <button class="modal-btn" onclick="toggleModal()">X</button>
+    </div>
+    <div class="about-backdrop display-none"></div>
+
+    <section class="gallery display-none">
+      <section class="search-bar">
+        <input
+          class="search"
+          oninput="onSearchChange(this)"
+          type="text"
+          placeholder="Search"
+        />
+      </section>
+      <section class="img-container imgs-layout">
+        <img class="gallery-img" src="images/meme-imgs (square)/1.jpg" alt="" />
+        <img
+          class="gallery-img"
+          src="images/meme-imgs (square)/10.jpg"
+          alt=""
+        />
+      </section>
+    </section>
+    <section class="editor display-none">
+      <h1>make your meme</h1>
+      <section class="canvas-container"></section>
+      <section class="controler-container"></section>
+    </section>
+    <script src="js/services/storage.services.js"></script>
+    <script src="js/services/utils.services.js"></script>
+    <script src="js/nav-bar.controller.js"></script>
+    <script src="js/meme-gen.controller.js"></script>
+  </body>
+</html>

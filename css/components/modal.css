@@ -1,0 +1,29 @@
+.about-backdrop {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  opacity: 0.4;
+  z-index: 1;
+}
+
+.modal {
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  height: 40vh;
+  width: 40vw;
+  border: 2px solid white;
+  border-radius: 20px;
+  background-color: #22252c;
+  color: white;
+  text-align: center;
+  z-index: 2;
+}
+
+.modal-btn {
+  background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
+  border: 2px solid white;
+  border-radius: 20px;
+  color: white;
+}

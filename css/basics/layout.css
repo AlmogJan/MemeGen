@@ -1,0 +1,23 @@
+.header-layout {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar-layout {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-item-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgs-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 1fr);
+  gap: 10px;
+}
