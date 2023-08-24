@@ -82,7 +82,7 @@
             type="text"
             class="change-line"
             placeholder="Add Text Here"
-            onchange="onChangeText(this)"
+            oninput="onChangeText(this.value)"
           />
         </section>
         <section>
@@ -91,8 +91,8 @@
         </section>
         <section class="text-editors controller-layout">
           <section class="text-editors-btns">
-            <button class="size-up icon-btn">+</button>
-            <button class="size-down icon-btn">-</button>
+            <button class="size-up icon-btn" onclick="onUpdateSize(1)">+</button>
+            <button class="size-down icon-btn" onclick="onUpdateSize(-1)">-</button>
             <button class="text-align-left icon-btn">L</button>
             <button class="text-align-right icon-btn">R</button>
             <button class="text-align-center icon-btn">C</button>
@@ -106,15 +106,26 @@
               <option value="monospace">Monospace</option>
               <option value="serif">Serif</option>
             </select>
-            <button class="stroke-color icon-btn">SC</button>
-            <button class="text-color icon-btn">TC</button>
+            <input
+            type="color"
+              class="stroke-color"
+              oninput="onStrokeColorInput(this)"
+            >
+          </input>
+          <input
+          type="color"
+            class="text-color"
+            value="#ffffff"
+            oninput="onTextColorInput(this)"
+          >
+        </input>
           </section>
         </section>
         <section>
           <button class="save-meme icon-btn">SM</button>
           <button class="share-meme icon-btn" onclick="shareMeme()">SHM</button>
           <button class="icon-btn">
-            <a href="#" class="download-meme" onclick="downloadCanvas(this)"
+            <a href="#" class="download-meme" onclick="downloadMeme(this)"
               >DM</a
             >
           </button>

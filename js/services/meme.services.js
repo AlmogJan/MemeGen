@@ -24,12 +24,15 @@ function _createMeme(image) {
   return {
     selectedImgId: image.id,
     selectedLineIdx: 0,
-    lines: [
-      {
-        txt: "I sometimes eat Falafel",
-        color: "red",
-        size: "38px",
-      },
-    ],
+    lines: [_createLine("I sometimes eat Falafel", "white", "black", 50)],
+  };
+}
+
+function _createLine(txt, color, strokeColor, size) {
+  return {
+    txt,
+    color,
+    strokeColor,
+    size,
   };
 }

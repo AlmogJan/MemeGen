@@ -1,3 +1,51 @@
+function onChangeText(value) {
+  gLine = value;
+  gCtx.save();
+  gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+  gCtx.drawImage(
+    gImg,
+    0,
+    0,
+    SCREEN_WIDTH * PIXEL_RATIO,
+    SCREEN_HEIGHT * PIXEL_RATIO
+  );
+  drawText(
+    gLine,
+    gMeme.lines[gMeme.selectedLineIdx].color,
+    gMeme.lines[gMeme.selectedLineIdx].strokeColor,
+    gMeme.lines[gMeme.selectedLineIdx].size,
+    400,
+    300
+  );
+
+  gCtx.restore();
+}
+function drawText(text, fillStyle, strokeStyle, fontSize, x, y) {
+  gCtx.lineWidth = 2;
+  gCtx.fillStyle = fillStyle;
+  gCtx.strokeStyle = strokeStyle;
+  gCtx.font = fontSize + "px poppins,sans-sarif";
+  gCtx.textAlign = "center";
+  gCtx.textBaseline = "middle";
+
+  gCtx.fillText(text, x, y);
+  gCtx.strokeText(text, x, y);
+}
+
+function onUpdateSize(addToSize) {
+  gMeme.lines[gMeme.selectedLineIdx].size += addToSize;
+  onChangeText(gLine);
+}
+
+function onStrokeColorInput(elStrokePicker) {
+  gMeme.lines[gMeme.selectedLineIdx].strokeColor = elStrokePicker.value;
+  onChangeText(gLine);
+}
+function onTextColorInput(elTextPicker) {
+  gMeme.lines[gMeme.selectedLineIdx].color = elTextPicker.value;
+  onChangeText(gLine);
+}
+
 function downloadMeme(elDownload) {
   const dataUrl = gCanvas.toDataURL();
   elDownload.href = dataUrl;
@@ -40,7 +88,6 @@ function doUploadImg(imgDataUrl, onSuccess) {
 
     // If the response is ok, call the onSuccess callback function,
     // that will create the link to facebook using the url we got
-    console.log("Got back live url:", url);
     onSuccess(url);
   };
   XHR.onerror = (req, ev) => {

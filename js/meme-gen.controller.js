@@ -1,7 +1,9 @@
 "use strict";
 let gCanvas;
 let gCtx;
+let gImg;
 let gMeme;
+let gLine;
 const PIXEL_RATIO = Math.max(1, window.devicePixelRatio),
   SCREEN_WIDTH = 600,
   SCREEN_HEIGHT = 600;
@@ -46,7 +48,8 @@ function onSearchChange(elSearch) {
   renderGallery();
 }
 function renderMeme(elImg) {
-  elImg.classList.add(".selected-img");
+  document.querySelector(".nav-memes").click();
+  gImg = elImg;
   gCtx.drawImage(
     elImg,
     0,
@@ -60,19 +63,4 @@ function renderMeme(elImg) {
 
 function onCreateMeme(elImg) {
   gMeme = getMeme(elImg);
-  console.log(gMeme);
-}
-
-function onChangeText(elInput) {
-  drawText(elInput.value, gMeme.lines[gMeme.selectedLineIdx].color, 400, 300);
-}
-
-function drawText(text, fillStyle, x, y) {
-  gCtx.lineWidth = 2;
-  gCtx.fillStyle = fillStyle;
-  gCtx.font = "40px poppins,sans-sarif";
-  gCtx.textAlign = "center";
-  gCtx.textBaseline = "middle";
-
-  gCtx.fillText(text, x, y);
 }
