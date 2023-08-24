@@ -74,15 +74,58 @@
       </section>
       <section class="img-container imgs-layout"></section>
     </section>
-    <section class="editor display-none">
-      <h1>make your meme</h1>
+    <section class="editor display-none editor-layout">
       <section class="canvas-container"></section>
-      <section class="controler-container"></section>
+      <section class="controller-container controller-layout">
+        <section class="input">
+          <input
+            type="text"
+            class="change-line"
+            placeholder="Add Text Here"
+            onchange="onChangeText(this)"
+          />
+        </section>
+        <section>
+          <button class="add-line icon-btn">++</button>
+          <button class="delete-line icon-btn">--</button>
+        </section>
+        <section class="text-editors controller-layout">
+          <section class="text-editors-btns">
+            <button class="size-up icon-btn">+</button>
+            <button class="size-down icon-btn">-</button>
+            <button class="text-align-left icon-btn">L</button>
+            <button class="text-align-right icon-btn">R</button>
+            <button class="text-align-center icon-btn">C</button>
+          </section>
+          <section class="text-editors-select">
+            <select class="impact">
+              <option value="impact">Impact</option>
+              <option value="poppins">Poppins</option>
+              <option value="ariel">Ariel</option>
+              <option value="courier-New">Courier New</option>
+              <option value="monospace">Monospace</option>
+              <option value="serif">Serif</option>
+            </select>
+            <button class="stroke-color icon-btn">SC</button>
+            <button class="text-color icon-btn">TC</button>
+          </section>
+        </section>
+        <section>
+          <button class="save-meme icon-btn">SM</button>
+          <button class="share-meme icon-btn" onclick="shareMeme()">SHM</button>
+          <button class="icon-btn">
+            <a href="#" class="download-meme" onclick="downloadCanvas(this)"
+              >DM</a
+            >
+          </button>
+        </section>
+      </section>
     </section>
     <script src="js/services/storage.services.js"></script>
     <script src="js/services/utils.services.js"></script>
     <script src="js/services/meme.services.js"></script>
     <script src="js/nav-bar.controller.js"></script>
+    <script src="js/editor.controller.js"></script>
     <script src="js/meme-gen.controller.js"></script>
   </body>
 </html>

@@ -21,7 +21,7 @@ function createCanvas() {
   gCanvas = document.createElement("canvas");
   gCanvas.width = SCREEN_WIDTH * PIXEL_RATIO;
   gCanvas.height = SCREEN_HEIGHT * PIXEL_RATIO;
-  gCanvas.style.cursor = "crosshair";
+  gCanvas.style.cursor = "grab";
   gCanvas.style.width = SCREEN_WIDTH + "px";
   gCanvas.style.height = SCREEN_HEIGHT + "px";
   gCanvas.classList.add("canvas-item");
@@ -43,16 +43,10 @@ function renderGallery() {
 
 function onSearchChange(elSearch) {
   setSearchQuery(elSearch.value);
-  //   renderGallery();
+  renderGallery();
 }
-
-// function onSelectImg(elImg) {
-//   coverCanvasWithImg(elImg);
-// }
-
-// Lets cover a fixed-width canvas using an img
-// changing the canvas height
 function renderMeme(elImg) {
+  elImg.classList.add(".selected-img");
   gCtx.drawImage(
     elImg,
     0,
@@ -60,13 +54,17 @@ function renderMeme(elImg) {
     SCREEN_WIDTH * PIXEL_RATIO,
     SCREEN_HEIGHT * PIXEL_RATIO
   );
+
   onCreateMeme(elImg);
 }
 
 function onCreateMeme(elImg) {
-  let elMeme = createMeme(elImg);
-  const defaultLine = elMeme.lines[elMeme.selectedLineIdx];
-  drawText(defaultLine.txt, defaultLine.color, 300, 300);
+  gMeme = getMeme(elImg);
+  console.log(gMeme);
+}
+
+function onChangeText(elInput) {
+  drawText(elInput.value, gMeme.lines[gMeme.selectedLineIdx].color, 400, 300);
 }
 
 function drawText(text, fillStyle, x, y) {
@@ -78,10 +76,3 @@ function drawText(text, fillStyle, x, y) {
 
   gCtx.fillText(text, x, y);
 }
-
-// function downloadCanvas() {
-//   const dataUrl = document.querySelector(".canvas").toDataURL();
-//   let elSaveBtn = document.querySelector(".save");
-//   elSaveBtn.href = dataUrl;
-//   elSaveBtn.download = "my-img";
-// }

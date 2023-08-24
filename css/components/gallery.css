@@ -1,7 +1,11 @@
 .gallery-img {
   width: 15.6vw;
   aspect-ratio: 1/1;
-  border: 1px solid transparent;
+  border: 3px solid transparent;
   border-radius: 10px;
   margin: 0;
+}
+
+.selected-img {
+  border-color: #21ac91;
 }

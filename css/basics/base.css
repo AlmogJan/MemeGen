@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 body {
-  margin: 0;
+  margin-inline: 10px;
   padding: 0;
   font-family: poppins, sans-serif;
 }

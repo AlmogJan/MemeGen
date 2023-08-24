@@ -2,3 +2,7 @@
   font-family: poppins;
   src: url("/fonts/Poppins/Poppins-Regular.ttf");
 }
+@font-face {
+  font-family: Eurofurence;
+  src: url("/fonts/Eurofurence/eurofurence\ \ regular\ 500.ttf");
+}

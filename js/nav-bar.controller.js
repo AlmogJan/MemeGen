@@ -36,8 +36,10 @@ function toggleDarkMode(elModeBtn) {
   if (elModeBtn.classList.contains("light-mode")) {
     elModeBtn.classList.replace("light-mode", "dark-mode");
     document.body.style.backgroundColor = "#22252c";
+    document.body.style.color = "white";
   } else if (elModeBtn.classList.contains("dark-mode")) {
     elModeBtn.classList.replace("dark-mode", "light-mode");
     document.body.style.backgroundColor = "white";
+    document.body.style.color = "#22252c";
   }
 }
