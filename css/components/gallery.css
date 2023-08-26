@@ -1,3 +1,9 @@
+.search {
+  width: 30.26vw;
+  height: 5vh;
+  margin-block: 5vh;
+}
+
 .gallery-img {
   width: 15.6vw;
   aspect-ratio: 1/1;

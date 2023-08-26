@@ -1,4 +1,5 @@
 .header-layout {
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -19,7 +20,8 @@
 .imgs-layout {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15.6vw, 1fr));
-  gap: 25px 30px;
+  gap: 3.67vh 2vw;
+  justify-content: center;
   align-items: center;
 }
 
