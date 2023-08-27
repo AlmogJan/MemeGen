@@ -19,22 +19,7 @@
 
 .imgs-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15.6vw, 1fr));
-  gap: 3.67vh 2vw;
-  justify-content: center;
-  align-items: center;
-}
-
-.controller-layout {
-  display: grid;
-  grid-row: 5;
-  gap: 20px 10px;
-  align-items: center;
-}
-
-.editor-layout {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  align-items: center;
+  place-content: center start;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
+  gap: 10px;
 }

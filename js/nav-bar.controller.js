@@ -16,7 +16,6 @@ function onMemesClick(elMemesBtn) {
   document.querySelector(".gallery").classList.add("display-none");
   document.querySelector(".modal").classList.add("display-none");
   document.querySelector(".about-backdrop").classList.add("display-none");
-
   elMemesBtn.classList.toggle("nav-item-clicked");
   document.querySelector(".editor").classList.toggle("display-none");
 }
@@ -27,6 +26,7 @@ function toggleModal() {
   document.querySelector(".gallery").classList.add("display-none");
   document.querySelector(".editor").classList.add("display-none");
 
+  document.querySelector(".nav-about").classList.add("nav-item-clicked");
   document.body.classList.toggle("no-overflow");
   document.querySelector(".about-backdrop").classList.toggle("display-none");
   document.querySelector(".modal").classList.toggle("display-none");

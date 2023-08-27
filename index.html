@@ -56,16 +56,23 @@
     </header>
     <div class="modal display-none">
       <section>
-      <h1>About</h1>
-      <p>Welcome to MemeGen</p>
-      <p>Press the + button to add a line, and the bin to remove the last line you added.</p>
-      <p>The diskette button will save the meme to the gallery.</p>
-      <p>You can share the meme with your friends on facebook when you press the share button.</p>
-      <p>Press the download button to save a copy for your own!</p>
-    </section>
+        <h1>About</h1>
+        <h3>Welcome to MemeGen!</h3>
+        <p>To select,drag,edit or delete a line of text- just click on it</p>
+        <p>
+          Press the + button to add a line, and the bin to remove the last line
+          you added.
+        </p>
+        <p>The diskette button will save the meme to the gallery.</p>
+        <p>
+          You can share the meme with your friends on facebook when you press
+          the share button.
+        </p>
+        <p>Press the download button to save a copy for your own!</p>
+      </section>
       <section>
-      <button class="modal-btn" onclick="toggleModal()">X</button>
-    </section>
+        <button class="modal-btn" onclick="toggleModal()">X</button>
+      </section>
     </div>
     <div class="about-backdrop display-none"></div>
 
@@ -79,52 +86,100 @@
         />
       </section>
       <section class="img-container imgs-layout"></section>
-      <section class="saved-meme-gallery">
-        <h3>Saved Memes</h3>
-        <h4 class="display-none">You dont have any saved memes yet</h4>
+      <section class="saved-meme-container">
+        <section class="saved-meme-gallery-headers">
+          <h3>Saved Memes</h3>
+          <h4 class="display-none">You dont have any saved memes yet</h4>
+        </section>
+        <section class="saved-meme-gallery imgs-layout"></section>
       </section>
     </section>
-    <section class="editor display-none editor-layout">
+
+    <section
+      class="editor display-none flex flex-row space-around align-center"
+    >
       <section class="canvas-container"></section>
-      <section class="controller-container controller-layout">
-        <section class="input-container">
-        </section>
-        <section>
+      <section
+        class="controller-container flex flex-column space-between align-center"
+      >
+        <section
+          class="editor-section input-container flex flex-column space-around align-center"
+        ></section>
+        <section
+          class="editor-section flex flex-row justify-center align-center"
+        >
           <button class="add-line icon-btn" onclick="onAddLine()">+</button>
-          <button class="delete-line icon-btn" onclick="onDeleteLine()"><img class= "favicon"src="images/bin.png" alt=""></button>
+          <button class="delete-line icon-btn" onclick="onDeleteLine()">
+            <img class="favicon" src="images/bin.png" alt="" />
+          </button>
         </section>
-        <section class="text-editors controller-layout">
-          <section class="text-editors-btns">
-            <button class="size-up icon-btn" onclick="onUpdateSize(1)"><img src="/images/A+.png" alt=""></button>
-            <button class="size-down icon-btn" onclick="onUpdateSize(-1)"><img src="images/A-.png" alt=""></button>
-            <button class="text-align-left icon-btn" onclick="onChangeTextAlign('start')"><img src="/images/Rectangle_4_copie_3.png" alt=""></button>
-            <button class="text-align-center icon-btn" onclick="onChangeTextAlign('center')"><img src="images/Rectangle_4_copie_4.png" alt=""></button>
-            <button class="text-align-right icon-btn" onclick="onChangeTextAlign('end')"><img src="images/Rectangle_4_copie_5.png" alt=""></button>
-          </section>
-          <section class="text-editors-select">
-            <select class="font-family" onchange="onChangeFont(this.value)">
-            </select>
-            <input
-            type="color"
-              class="stroke-color"
-              oninput="onStrokeColorInput(this)"
-            >
-          </input>
+        <section
+          class="editor-section text-editors-btns flex flex-row space-around align-center"
+        >
+          <button class="size-up icon-btn" onclick="onUpdateSize(1)">
+            <img class="favicon" src="images/resize-font (1).png" alt="" />
+          </button>
+          <button class="size-down icon-btn" onclick="onUpdateSize(-1)">
+            <img class="favicon" src="images/resize-font.png" alt="" />
+          </button>
+          <button
+            class="text-align-left icon-btn"
+            onclick="onChangeTextAlign('start')"
+          >
+            <img
+              class="favicon"
+              class="favicon"
+              src="images/left-align.png"
+              alt=""
+            />
+          </button>
+          <button
+            class="text-align-center icon-btn"
+            onclick="onChangeTextAlign('center')"
+          >
+            <img class="favicon" src="images/center-align.png" alt="" />
+          </button>
+          <button
+            class="text-align-right icon-btn"
+            onclick="onChangeTextAlign('end')"
+          >
+            <img class="favicon" src="images/right-align.png" alt="" />
+          </button>
+        </section>
+        <section
+          class="editor-section text-editors-select flex flex-row space-around align-center"
+        >
+          <select
+            class="font-family input-select"
+            onchange="onChangeFont(this.value)"
+          ></select>
           <input
-          type="color"
+            class="input-color"
+            type="color"
+            class="stroke-color"
+            oninput="onStrokeColorInput(this)"
+          />
+          <input
+            class="input-color"
+            type="color"
             class="text-color"
             value="#ffffff"
             oninput="onTextColorInput(this)"
-          >
-        </input>
-          </section>
-        <section>
-          <button class="save-meme icon-btn" onclick="saveToGallery()"><img class="favicon" src="images/diskette.png" alt=""></button>
-          <button class="share-meme icon-btn" onclick="shareMeme()"><img class="favicon" src="images/share.png" alt=""></button>
+          />
+        </section>
+        <section
+          class="editor-section save-share flex flex-row justify-center align-center"
+        >
+          <button class="save-meme icon-btn" onclick="saveToGallery()">
+            <img class="favicon" src="images/diskette.png" alt="" />
+          </button>
+          <button class="share-meme icon-btn" onclick="shareMeme()">
+            <img class="favicon" src="images/share.png" alt="" />
+          </button>
           <button class="icon-btn">
             <a href="#" class="download-meme" onclick="downloadMeme(this)"
-              ><img class="favicon" src="images/downloads.png" alt=""></a
-            >
+              ><img class="favicon" src="images/download.png" alt=""
+            /></a>
           </button>
         </section>
       </section>

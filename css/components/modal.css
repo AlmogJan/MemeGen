@@ -29,6 +29,11 @@
   padding-block-end: 30px;
 }
 
+.modal h1,
+h3 {
+  margin-block-end: 25px;
+}
+
 .modal-btn {
   background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
   border: 2px solid white;

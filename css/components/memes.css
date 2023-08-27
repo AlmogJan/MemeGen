@@ -7,18 +7,38 @@
   margin-block: 20px;
 }
 
+.controller-container {
+  background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 20px;
+}
+.editor-section {
+  width: 100%;
+  padding-block: 10px;
+}
 .icon-btn {
   height: 50px;
   width: 50px;
-  background-color: #21ac91;
+  background-color: white;
   color: black;
   font-weight: 800;
   font-size: 30px;
   border: 1px solid transparent;
   border-radius: 10px;
-  box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55),
-    inset 0 5px 0 rgba(255, 255, 255, 0.58);
+  box-shadow: 1px 2px 0 rgba(92, 92, 92, 0.55),
+    inset 0 1px 1 rgba(255, 255, 255, 0.58);
   cursor: pointer;
+  margin-inline: 10px;
+}
+
+.input-color {
+  height: 50px;
+  width: 50px;
+}
+.input-select {
+  height: 50px;
+  width: 190px;
 }
 
 .favicon {

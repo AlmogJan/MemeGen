@@ -50,7 +50,7 @@ function renderGallery() {
 function renderSavedMemes() {
   const savedMemes = getSavedMemes();
   const elContainer = document.querySelector(".saved-meme-gallery");
-  const elNoMemes = document.querySelector(".saved-meme-gallery h4");
+  const elNoMemes = document.querySelector(".saved-meme-gallery-headers h4");
   if (savedMemes) {
     elNoMemes.classList.add("display-none");
     savedMemes.forEach((meme) => {

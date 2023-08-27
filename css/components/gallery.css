@@ -5,11 +5,14 @@
 }
 
 .gallery-img {
-  width: 15.6vw;
+  width: 150px;
   aspect-ratio: 1/1;
   border: 3px solid transparent;
   border-radius: 10px;
   margin: 0;
+}
+.saved-meme-gallery-headers {
+  display: inline-block;
 }
 
 .selected-img {
