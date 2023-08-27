@@ -33,11 +33,9 @@ function onDown(ev) {
     return;
   }
   setInput(line.txt);
-  console.log(ev);
   meme.selectedLineIdx = lineIndex;
   line.isDragging = true;
   gStartPos = pos;
-  console.log(pos);
   // if(TOUCH_EVS.includes(ev.type)){
   //   pos/
   // }
@@ -279,7 +277,6 @@ function doUploadImg(imgDataUrl, onSuccess) {
 
     // If the response is ok, call the onSuccess callback function,
     // that will create the link to facebook using the url we got
-    console.log("Got back live url:", url);
     onSuccess(url);
   };
   XHR.onerror = (req, ev) => {

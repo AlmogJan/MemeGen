@@ -122,7 +122,6 @@ function addLine(context) {
 
 function deleteLine() {
   gMeme.lines.splice(gMeme.selectedLineIdx, 1);
-  console.log(gMeme.lines);
 }
 
 function _getRect(x, y, lineFontSize, text, context) {
