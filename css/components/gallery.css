@@ -1,6 +1,18 @@
+.gallery {
+  margin-inline-start: 0;
+}
+
+.search-bar,
+.img-container,
+.saved-meme-container {
+  grid-column: 2;
+}
+
 .search {
   width: 30.26vw;
   height: 5vh;
+  border: 1px solid gray;
+  border-radius: 15px;
   margin-block: 5vh;
 }
 
@@ -11,10 +23,14 @@
   border-radius: 10px;
   margin: 0;
 }
+.saved-meme-gallery {
+  display: block;
+}
 .saved-meme-gallery-headers {
   display: inline-block;
 }
 
-.selected-img {
-  border-color: #21ac91;
+.gallery-img:hover {
+  scale: 1.15;
+  cursor: pointer;
 }

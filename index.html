@@ -12,7 +12,7 @@
     <title>Meme-Gen</title>
   </head>
   <body onload="onInit()">
-    <header class="header-layout">
+    <header class="flex space-around align-center">
       <div class="logo">
         <img
           class="logo-img"
@@ -22,36 +22,40 @@
         <h1 class="logo-heading">MemeGen</h1>
       </div>
       <nav class="navbar-container">
-        <ul class="navbar navbar-layout">
+        <ul class="navbar flex space-around align-center">
           <li
-            class="nav-item nav-item-layout nav-gallery"
+            class="nav-item flex justify-center align-center nav-gallery"
             onclick="onGalleryClick(this)"
           >
             Gallery
           </li>
           <li
-            class="nav-item nav-item-layout nav-memes"
+            class="nav-item flex justify-center align-center nav-memes"
             onclick="onMemesClick(this)"
           >
             memes
           </li>
           <li
-            class="nav-item nav-item-layout nav-about"
+            class="nav-item flex justify-center align-center nav-about"
             onclick="toggleModal()"
           >
             About
           </li>
-          <li class="nav-item nav-item-layout nav-hamburger display-none"></li>
+          <li
+            class="nav-item flex justify-center align-center nav-hamburger display-none"
+          ></li>
+          <li>
+            <button
+              class="toggle-dark-mode light-mode"
+              onclick="toggleDarkMode(this)"
+            >
+              ☀️
+            </button>
+          </li>
         </ul>
       </nav>
       <button class="btn-toggle-menu display-none" onclick="toggleMenu(this)">
         ☰
-      </button>
-      <button
-        class="toggle-dark-mode light-mode"
-        onclick="toggleDarkMode(this)"
-      >
-        ☀️
       </button>
     </header>
     <div class="modal display-none">
@@ -71,12 +75,13 @@
         <p>Press the download button to save a copy for your own!</p>
       </section>
       <section>
-        <button class="modal-btn" onclick="toggleModal()">X</button>
+        <button class="modal-btn" onclick="onGalleryClick()">X</button>
       </section>
     </div>
     <div class="about-backdrop display-none"></div>
+    <div class="menu-backdrop display-none"></div>
 
-    <section class="gallery display-none">
+    <section class="gallery main-layout display-none">
       <section class="search-bar">
         <input
           class="search"
@@ -95,12 +100,10 @@
       </section>
     </section>
 
-    <section
-      class="editor display-none flex flex-row space-around align-center"
-    >
+    <section class="editor display-none editor-layout">
       <section class="canvas-container"></section>
       <section
-        class="controller-container flex flex-column space-between align-center"
+        class="controller-container flex flex-column justify-center align-center"
       >
         <section
           class="editor-section input-container flex flex-column space-around align-center"
@@ -153,19 +156,21 @@
             class="font-family input-select"
             onchange="onChangeFont(this.value)"
           ></select>
+          <label class="lable" for="stroke-color">Stroke<br />color</label>
           <input
-            class="input-color"
             type="color"
-            class="stroke-color"
+            class="stroke-color input-color"
             oninput="onStrokeColorInput(this)"
           />
+
+          <label class="lable" for="text-color">Text<br />color</label>
           <input
-            class="input-color"
             type="color"
-            class="text-color"
+            class="text-color input-color"
             value="#ffffff"
             oninput="onTextColorInput(this)"
           />
+          </div>
         </section>
         <section
           class="editor-section save-share flex flex-row justify-center align-center"

@@ -7,9 +7,11 @@ const fonts = {
   serif: "serif",
 };
 let gStartPos;
+const TOUCH_EVS = ["touchstart", "touchmove", "touchend"];
 
 function addEditorEventListeners(canvas) {
   addMouseListeners(canvas);
+  addTouchListeners(canvas);
 }
 
 function addMouseListeners(canvas) {
@@ -17,18 +19,28 @@ function addMouseListeners(canvas) {
   canvas.addEventListener("mousemove", onMove);
   canvas.addEventListener("mouseup", onUp);
 }
-
+function addTouchListeners(canvas) {
+  canvas.addEventListener("touchstart", onDown);
+  canvas.addEventListener("touchmove", onMove);
+  canvas.addEventListener("touchend", onUp);
+}
 function onDown(ev) {
   let pos = getEvPos(ev);
   const meme = getMeme();
   const { line, lineIndex } = checkLineClicked(pos);
-  if (lineIndex < 0) {
-    meme.selectedLineIdx = -1;
+  if (lineIndex < 0 || !line) {
+    meme.selectedLineIdx = 0;
     return;
   }
+  setInput(line.txt);
+  console.log(ev);
   meme.selectedLineIdx = lineIndex;
   line.isDragging = true;
   gStartPos = pos;
+  console.log(pos);
+  // if(TOUCH_EVS.includes(ev.type)){
+  //   pos/
+  // }
   document.body.style.cursor = "grabbing";
   onChangeText(line.txt);
 }
@@ -62,6 +74,14 @@ function getEvPos(ev) {
     x: ev.offsetX * 2,
     y: ev.offsetY * 2,
   };
+  if (TOUCH_EVS.includes(ev.type)) {
+    ev.preventDefault();
+    ev = ev.changedTouches[0];
+    pos = {
+      x: (ev.pageX - ev.target.offsetLeft - ev.target.clientLeft) * 3,
+      y: (ev.pageY - ev.target.offsetTop - ev.target.clientTop) * 3,
+    };
+  }
   return pos;
 }
 
@@ -149,22 +169,26 @@ function drawText(
 }
 
 function onAddLine() {
-  addLineInput();
   addLine(gCtx);
+  setInput("");
+}
+
+function setInput(value) {
+  const input = document.querySelector(".change-line");
+  input.value = value;
 }
 function addLineInput() {
-  const input = document.createElement("input");
   const container = document.querySelector(".input-container");
-  input.type = "text";
-  input.id = container.children.length;
-  input.classList.add("change-line");
-  input.placeholder = "Add Text Here";
-  input.oninput = () => {
-    const meme = getMeme();
-    meme.selectedLineIdx = parseInt(input.id);
-    onChangeText(input.value);
-  };
-  container.appendChild(input);
+  if (container.children.length === 0) {
+    const input = document.createElement("input");
+    input.type = "text";
+    input.classList.add("change-line");
+    input.placeholder = "Add Text Here";
+    input.oninput = () => {
+      onChangeText(input.value);
+    };
+    container.appendChild(input);
+  }
 }
 function onDeleteLine() {
   const meme = getMeme();
@@ -172,7 +196,6 @@ function onDeleteLine() {
     deleteLine();
     removeInput(meme);
     meme.selectedLineIdx = meme.lines.length - 1;
-    console.log(getCurrentLine());
     onChangeText(getCurrentLine().txt);
   }
 }

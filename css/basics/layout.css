@@ -1,20 +1,12 @@
-.header-layout {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.gallery-layout {
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
 }
-
-.navbar-layout {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.nav-item-layout {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.editor-layout {
+  display: grid;
+  grid-template-columns: 20px 1fr 1fr 20px;
+  justify-items: center;
+  gap: 20px;
 }
 
 .imgs-layout {
