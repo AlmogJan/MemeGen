@@ -92,22 +92,14 @@ input[type="color"] {
 }
 
 *:focus {
-  border-radius: 0;
+  border-radius: 20px;
   outline: none;
-}
-
-::-webkit-color-swatch-wrapper {
-  padding: 0;
-}
-
-::-webkit-color-swatch {
-  border: 0;
-  border-radius: 0;
 }
 
 ::-moz-color-swatch,
 ::-moz-focus-inner {
-  border: 0;
+  border: 1px solid transparent;
+  border-radius: 30px;
 }
 
 ::-moz-focus-inner {
